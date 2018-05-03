@@ -9,7 +9,7 @@
 		
 		SECCION....:    1700.
 */
-
+/*Aqui empieza nuestro programa*/
 #include<iostream>
 #include<string>
 using namespace std;
