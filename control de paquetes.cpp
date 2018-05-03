@@ -13,7 +13,7 @@
 #include<iostream>
 #include<string>
 using namespace std;
-
+/*Definicion de la clase*/
 class UnahExpress{
 public:
 
