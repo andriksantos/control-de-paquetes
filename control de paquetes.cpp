@@ -23,14 +23,16 @@ public:
 		int telefono;
 		string correo;
 
-		cout<<"Ingrese los siguientes datos"<<endl<<endl;
-		cout<<"Digite el codigo del cliente..:";
+		cout<< "--------------------------------"<<endl
+			<< "| Ingrese los siguientes datos |"<<endl
+			<< "--------------------------------"<<endl<<endl;
+		cout<<	"Digite el codigo del cliente..:";
 		cin>>codigo_cliente;
-		cout<<"Ingrese el nombre.............:";
+		cout<<	"Ingrese el nombre.............:";
 		cin>>nombre;
-		cout<<"Ingrese el #Telefono..........:";
+		cout<<	"Ingrese el #Telefono..........:";
 		cin>>telefono;
-		cout<<"Digite su correo electronico..:";
+		cout<<	"Digite su correo electronico..:";
 		cin>>correo;
 	}
 
