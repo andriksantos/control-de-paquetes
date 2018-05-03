@@ -38,7 +38,8 @@ public:
 
 	void mensaje_salida(){
 		cout<<"Gracias por usar nuestro servicio."	<<endl
-			<<"Que tenga un buen dia..."			<<endl;
+			<<"Que tenga un buen dia..."			<<endl<<endl
+			<<"Precione nuevamente ENTER para salir."<<endl;
 	}
 
 };
