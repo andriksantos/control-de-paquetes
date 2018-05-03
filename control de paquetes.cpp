@@ -18,7 +18,20 @@ class UnahExpress{
 public:
 
 	void nuevoCliente(){
+		long long codigo_cliente;
+		string nombre;
+		int telefono;
+		string correo;
 
+		cout<<"Ingrese los siguientes datos"<<endl<<endl;
+		cout<<"Digite el codigo del cliente..:";
+		cin>>codigo_cliente;
+		cout<<"Ingrese el nombre.............:";
+		cin>>nombre;
+		cout<<"Ingrese el #Telefono..........:";
+		cin>>telefono;
+		cout<<"Digite su correo electronico..:";
+		cin>>correo;
 	}
 
 	void nuevoPaquete(){
