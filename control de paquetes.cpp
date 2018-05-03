@@ -1,9 +1,11 @@
 /*
-		PROYECTO DE LENGUAJE DE PROGRAMACION II
-				 		UNAH-VS
+				PROYECTO DE LENGUAJE DE PROGRAMACION II
+					 		UNAH-VS
 
-		INTEGRANTES:	SIRLEY CRISTEL LOPEZ CUBAS 20152000729
-						Jajaira Yulissa Domínguez Ramos 20152001729
+		PROYECTO...:	CONTROL DE PAQUETES.
+
+		INTEGRANTES:	SIRLEY CRISTEL LOPEZ CUBAS			20152000729.
+						Jajaira Yulissa Dominguez Ramos		20152001729.
 		
 		SECCION....:    1700.
 */
@@ -34,6 +36,10 @@ public:
 
 	}
 
+	void mensaje_salida(){
+		cout<<"Gracias por usar nuestro servicio."	<<endl
+			<<"Que tenga un buen dia..."			<<endl;
+	}
 
 };
 
@@ -41,24 +47,24 @@ public:
 int main(){
 	UnahExpress express;
 	int opcion;
-	string mensajePregunta;
 
-	enum Opciones {nuevo_cliente = 1, nuevo_paquete, entrega_paquete, buscar_paquete, lista_paquetes, salir};
+	enum Opciones {nuevo_cliente = 1, nuevo_paquete, entrega_paquete, buscar_paquete, lista_paquetes, salir,mensaje_salida};
 	do{
 	   system("CLS");
 	   system("color F2");
-	   cout<< " *********************************** " <<endl
-	       << " *  Sistema de control de paquete  * " <<endl
-		   << " *********************************** " <<endl
-		   << " * 1- Registrar cliente            * " <<endl
-		   << " * 2- Ingresar paquete             * " <<endl
-		   << " * 3- Entregar paquete             * " <<endl
-		   << " * 4- Buscar paquete               * " <<endl
-		   << " * 5- Mostrar paquetes por cliente * " <<endl
-		   << " * 6- Salir                        * " <<endl
-		   << " *********************************** " <<endl
+	   cout<< " ------------------------------------ " <<endl
+	       << " |  Sistema de control de paquetes  | " <<endl
+		   << " ------------------------------------ " <<endl
+		   << " | 1.- Registrar cliente            | " <<endl
+		   << " | 2.- Ingresar paquete             | " <<endl
+		   << " | 3.- Entregar paquete             | " <<endl
+		   << " | 4.- Buscar paquete               | " <<endl
+		   << " | 5.- Mostrar paquetes por cliente | " <<endl
+		   << " | 6.- Salir                        | " <<endl
+		   << " ------------------------------------ " <<endl
 		   << " Ingrese su opcion [1-6]: ";
 		cin>> opcion;
+		cout<<endl;
 
 		switch(opcion){
 			case nuevo_cliente:
@@ -76,12 +82,9 @@ int main(){
 			case lista_paquetes:
 				express.listaPaquetePorCliente();
 				break;
-			/*case salir:
-				if (!mensajePregunta("SALIR DEL SISTEMA \n Desea salir del sistema?")){
-					opcion = -1;
-				}
+			case salir:
+				express.mensaje_salida();
 				break;
-*/
 			
 		}
 	}while (opcion != salir);
@@ -89,3 +92,4 @@ int main(){
 
 
 }
+
