@@ -24,6 +24,9 @@ using namespace std;
 /*Definicion de la clase*/
 class UnahExpress{
 public:
+
+		/*Variables globales*/
+
 		/*Nuevo cliente*/
 		long long codigo_cliente;
 		string nombre;
@@ -53,7 +56,7 @@ public:
 	}
 
 	void nuevoPaquete(){
-
+		
 		cout<< "--------------------------------"<<endl
 			<< "| Ingrese los siguientes datos |"<<endl
 			<< "--------------------------------"<<endl<<endl;
@@ -68,7 +71,11 @@ public:
 	}
 
 	void entregaPaquete(){
-
+		cout<< "--------------------------------"<<endl
+		<< "| Ingrese los siguientes datos |"<<endl
+		<< "--------------------------------"<<endl<<endl;
+		cout<<	"Ingrese el codigo del cliente..:";
+		cin>>codigo_cliente;
 	}
 
 	void buscarPaquete(){
