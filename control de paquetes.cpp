@@ -1,3 +1,11 @@
+/*!
+ * Control de paquetes 
+ * Copyright 2018 Andrick Santos Author
+ * Licensed under the Creative Commons Attribution 4.0 Unported License. For
+ * details, see https://creativecommons.org/licenses/by-nc-sa/4.0/
+ * or https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+*/
+
 /*
 				PROYECTO DE LENGUAJE DE PROGRAMACION II
 					 		UNAH-VS
