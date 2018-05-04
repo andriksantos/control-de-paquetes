@@ -37,8 +37,11 @@ public:
 		int numero_rastreo;
 		string descripcion_paquete;
 		int peso_libras;
-		long long id_cliente;
 
+		/*Entregar paquete*/
+		bool paquete;
+
+		
 
 	void nuevoCliente(){
 
@@ -79,6 +82,11 @@ public:
 	}
 
 	void buscarPaquete(){
+		cout<< "--------------------------------"<<endl
+		<< "| Ingrese los siguientes datos |"<<endl
+		<< "--------------------------------"<<endl<<endl;
+		cout<<	"Ingrese el codigo de ratreo..:";
+		cin>>numero_rastreo;
 
 	}
 
