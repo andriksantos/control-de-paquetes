@@ -16,12 +16,20 @@ using namespace std;
 /*Definicion de la clase*/
 class UnahExpress{
 public:
-
-	void nuevoCliente(){
+		/*Nuevo cliente*/
 		long long codigo_cliente;
 		string nombre;
 		int telefono;
 		string correo;
+
+		/*nuevo paquete*/
+		int numero_rastreo;
+		string descripcion_paquete;
+		int peso_libras;
+		long long id_cliente;
+
+
+	void nuevoCliente(){
 
 		cout<< "--------------------------------"<<endl
 			<< "| Ingrese los siguientes datos |"<<endl
@@ -38,6 +46,17 @@ public:
 
 	void nuevoPaquete(){
 
+		cout<< "--------------------------------"<<endl
+			<< "| Ingrese los siguientes datos |"<<endl
+			<< "--------------------------------"<<endl<<endl;
+		cout<<	"Digite el numero de rastreo....:";
+		cin>>numero_rastreo;
+		cout<<	"Descripcion del paquete........:";
+		cin>>descripcion_paquete;
+		cout<<	"Ingrese el numero en libras....:";
+		cin>>peso_libras;
+		cout<<	"Ingrese el codigo del cliente..:";
+		cin>>codigo_cliente;
 	}
 
 	void entregaPaquete(){
