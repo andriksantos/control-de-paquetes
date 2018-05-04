@@ -82,12 +82,26 @@ public:
 	}
 
 	void buscarPaquete(){
+		int numero;
 		cout<< "--------------------------------"<<endl
 		<< "| Ingrese los siguientes datos |"<<endl
 		<< "--------------------------------"<<endl<<endl;
-		cout<<	"Ingrese el codigo de ratreo..:";
-		cin>>numero_rastreo;
+		cout<<	"Ingrese el codigo de ratreo..:"<<endl;
+		cin>>numero;
 
+		if(numero == numero_rastreo){
+		
+		cout<<	"Numero de rastreo..............:"<<numero_rastreo <<endl;
+		cout<<	"Descripcion del paquete........:"<<descripcion_paquete <<endl;
+		cout<<	"Numero en libras...............:"<<peso_libras <<endl;
+		cout<<	"Codigo del cliente.............:"<<codigo_cliente <<endl;
+		
+		}else{
+			cout<<"El codigo que usted ingreso no coincide..."<<endl
+				<<"Intentelo de nuevo"<<endl<<endl;
+		}
+		system("pause>nul");
+		system("cls");
 	}
 
 	void listaPaquetePorCliente(){
@@ -96,6 +110,7 @@ public:
 
 	void mensaje_salida(){
 		cout<<"Gracias por usar nuestro servicio."	<<endl
+
 			<<"Que tenga un buen dia..."			<<endl<<endl
 			<<"Precione nuevamente ENTER para salir."<<endl;
 	}
