@@ -79,6 +79,7 @@ public:
 		<< "--------------------------------"<<endl<<endl;
 		cout<<	"Ingrese el codigo del cliente..:";
 		cin>>codigo_cliente;
+
 	}
 
 	void buscarPaquete(){
