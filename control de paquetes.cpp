@@ -22,6 +22,7 @@
 #include<string>
 using namespace std;
 /*Definicion de la clase*/
+
 class UnahExpress{
 public:
 
@@ -41,7 +42,6 @@ public:
 		/*Entregar paquete*/
 		bool paquete;
 
-		
 
 	void nuevoCliente(){
 
@@ -74,6 +74,7 @@ public:
 	}
 
 	void entregaPaquete(){
+		int codigo;
 		cout<< "--------------------------------"<<endl
 		<< "| Ingrese los siguientes datos |"<<endl
 		<< "--------------------------------"<<endl<<endl;
@@ -81,7 +82,7 @@ public:
 		cin>>codigo_cliente;
 
 	}
-
+	
 	void buscarPaquete(){
 		int numero;
 		cout<< "--------------------------------"<<endl
@@ -97,7 +98,7 @@ public:
 		cout<<	"Numero en libras...............:"<<peso_libras <<endl;
 		cout<<	"Codigo del cliente.............:"<<codigo_cliente <<endl;
 		
-		}else{
+	}else{
 			cout<<"El codigo que usted ingreso no coincide..."<<endl
 				<<"Intentelo de nuevo"<<endl<<endl;
 		}
