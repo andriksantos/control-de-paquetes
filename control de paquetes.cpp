@@ -6,126 +6,233 @@
  * or https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 */
 
-/*
-				PROYECTO DE LENGUAJE DE PROGRAMACION II
-					 		UNAH-VS
-
-		PROYECTO...:	CONTROL DE PAQUETES.
-
-		INTEGRANTES:	SIRLEY CRISTEL LOPEZ CUBAS			20152000729.
-						Jajaira Yulissa Dominguez Ramos		20152001729.
-		
-		SECCION....:    1700.
-*/
 /*Aqui empieza nuestro programa*/
-#include<iostream>
-#include<string>
+
+#include <iostream>
+#include <string>
+
 using namespace std;
-/*Definicion de la clase*/
 
-class UnahExpress{
+class Cliente {
 public:
+	long long CodigoCliente;
+    string nombre;
+	string telefono;
+	string correo;
 
-		/*Variables globales*/
-
-		/*Nuevo cliente*/
-		long long codigo_cliente;
-		string nombre;
-		int telefono;
-		string correo;
-
-		/*nuevo paquete*/
-		int numero_rastreo;
-		string descripcion_paquete;
-		int peso_libras;
-
-		/*Entregar paquete*/
-		bool paquete;
-
-
-	void nuevoCliente(){
-
-		cout<< "--------------------------------"<<endl
-			<< "| Ingrese los siguientes datos |"<<endl
-			<< "--------------------------------"<<endl<<endl;
-		cout<<	"Digite el codigo del cliente..:";
-		cin>>codigo_cliente;
-		cout<<	"Ingrese el nombre.............:";
-		cin>>nombre;
-		cout<<	"Ingrese el #Telefono..........:";
-		cin>>telefono;
-		cout<<	"Digite su correo electronico..:";
-		cin>>correo;
+	Cliente (){/*Constructor*/
+		CodigoCliente = 0;
+		nombre = "";
+		telefono = "";
+		correo = "";
 	}
 
-	void nuevoPaquete(){
+	void pedirDatosCliente (long long ACodigoCliente)
+	{
+		CodigoCliente = ACodigoCliente;
+		cout <<"Ingrese el nombre del Cliente......: ";
+		cin.ignore(100, '\n');
+		getline(cin, nombre);
+		cout <<"Digite el numero de Telefono.......: ";
+		getline(cin, telefono);
+		cout <<"Ingrese el correo electronico......: ";
+		getline(cin, correo);
+		cout<<endl;
+		cout <<"| Sus datos se guardaron exitosamente |" << endl<<endl;
+		system ("PAUSE");
+	}
+
+	void mostrarDatosCliente()
+	{
+		cout <<"Codigo......: " << CodigoCliente <<endl
+			 <<"Nombre......: " << nombre 		 <<endl
+			 <<"Telefono....: " << telefono 	 <<endl
+			 <<"Correo......: " << correo 	 	 <<endl<<endl
+			 <<"| Cliente Encontrado |"<<endl;
+	}
+
+};
+
+class Paquete {
+	public: 
+		long long numeroRastreo;
+		long long CodigoCliente;
+		string descripcionPaquete;
+		double pesoLibras;
+		bool Entregado;
+
+		Paquete(){//Constructor
+
+			numeroRastreo = 0;
+			CodigoCliente = 0;
+			descripcionPaquete = "";
+			pesoLibras = 0;
+			Entregado = false;
+		}
+
+		void pedirDatosPaquete(long long AnumeroRastreo)
+		{
+			cout << "Ingrese el codigo del cliente.........: ";
+			cin >>CodigoCliente;
+			numeroRastreo = AnumeroRastreo;
+			cout <<"Descripcion del paquete...............: ";
+			cin.ignore(100, '\n');
+			getline(cin, descripcionPaquete);
+			cout <<"Ingrese el peso en Libras.............: ";
+			cin >>pesoLibras;
+			cout<<endl;
+			cout <<"| Datos guardados exitosamente |" << endl<<endl;
+			system ("PAUSE");
+		}
+
+		void mostrarDatosPaquete()
+		{
+			cout <<"Codigo del Cliente........: " << CodigoCliente 		 << endl
+				 <<"Numero de Rastro..........: " << numeroRastreo 	 	 << endl
+				 <<"Descripcion del Paquete...: " << descripcionPaquete  << endl
+				 <<"Peso en Libras............: " << pesoLibras			 << endl<<endl
+				 <<"| Paquete Encontrado |";
+		}
+
+
+};
+
+const int MAX_CLIENTES = 3;
+const int MAX_PAQUETES = MAX_CLIENTES * 3;
+
+class UnahExpress {
+public:
+	int contadorClientes;
+	int contadorPaquetes;
+
+	Cliente clientes[MAX_CLIENTES];
+	Paquete paquetes[MAX_PAQUETES];
+
+
+	UnahExpress()//Constructor
+	{
+		contadorClientes = 0;
+		contadorPaquetes = 0;
+	}
+    
+	int buscarPaquete(long long numeroRastreo)
+	{
+		int ubicacion = -1;
+		for (int i = 0; i < contadorPaquetes; i++)
+		{
+			if (numeroRastreo == paquetes[i].numeroRastreo){
+			ubicacion = i;
+			break;
+		}
+	}
+	return ubicacion;
+}
+
+int buscarCodigo(long long CodigoCliente)
+{
+	int ubicacion = -1;
+	for (int i = 0; i < contadorClientes; i++)
+	{
+		if (CodigoCliente == clientes[i].CodigoCliente){
+			ubicacion = i;
+			break;
+		}
+	}
+	return ubicacion;
+}
+void registrarCliente(void)
+{
+	if (contadorClientes < MAX_CLIENTES)
+	{
+		long long CodigoCliente;
+		system("CLS");
+		cout<<"--------------------------------" <<endl
+			<<"| Ingrese de Datos del cliente |" <<endl
+			<<"--------------------------------" <<endl<<endl
+			<< "Ingrese el codigo del cliente......: ";
+		cin >> CodigoCliente;
+
+		int ubicacion = buscarCodigo(CodigoCliente);
+		if (ubicacion == -1){
+			clientes[contadorClientes].pedirDatosCliente(CodigoCliente);
+			contadorClientes++;
+		} else {
+			cout <<"| Clientes ya existe |"<<endl;
+			system("PAUSE");
 		
-		cout<< "--------------------------------"<<endl
-			<< "| Ingrese los siguientes datos |"<<endl
-			<< "--------------------------------"<<endl<<endl;
-		cout<<	"Digite el numero de rastreo....:";
-		cin>>numero_rastreo;
-		cout<<	"Descripcion del paquete........:";
-		cin>>descripcion_paquete;
-		cout<<	"Ingrese el numero en libras....:";
-		cin>>peso_libras;
-		cout<<	"Ingrese el codigo del cliente..:";
-		cin>>codigo_cliente;
+		}
+	} else {
+		cout <<" | No hay mas cupos disponibles |"<<endl
+			 <<" Intente con otro cliente" <<endl;
+		system("PAUSE");
 	}
+}
 
-	void entregaPaquete(){
-		int codigo;
-		cout<< "--------------------------------"<<endl
-		<< "| Ingrese los siguientes datos |"<<endl
-		<< "--------------------------------"<<endl<<endl;
-		cout<<	"Ingrese el codigo del cliente..:";
-		cin>>codigo_cliente;
+void registrarPaquete()
+{
+	if (contadorPaquetes < MAX_PAQUETES)
+	{
+		long long numeroRastreo;
 
+		system("CLS");
+			cout <<"-----------------------" << endl
+				 <<"| Ingreso de Paquetes |" << endl
+				 <<"-----------------------" << endl<<endl
+				 <<"Codigo de Rastreo del Paquete.........: ";
+			cin >> numeroRastreo;
+
+		int ubicacion = buscarPaquete(numeroRastreo);
+		if (ubicacion == -1){
+			paquetes[contadorPaquetes].pedirDatosPaquete(numeroRastreo);
+			contadorPaquetes++;
+		} else {
+			cout <<"| Paquete que usted ingreso ya existe |"<<endl;
+			system("PAUSE");
+		
+		}
+	} else {
+		cout <<" | No hay mas cupos disponibles |";
+		system("PAUSE");
+	}
+}
+
+	int busquedanumeroRastreo(){
+		
+		int ubicacion;
+		long long AnumeroRastreo;
+		system("CLS");
+		cout<<"----------------------------------" << endl
+			<<"| Busqueda de Rastreo de Paquete |" << endl
+			<<"----------------------------------" << endl<<endl;
+		cout <<"Codigo de Rastreo....: ";
+		cin >>AnumeroRastreo;
+		
+		ubicacion = buscarPaquete(AnumeroRastreo);
+		
+		if (ubicacion != -1){
+			paquetes[ubicacion].mostrarDatosPaquete();
+		}
+		else{
+			cout <<"| ERROR: Codigo de Rastreo No Existe |";
+		}	system("PAUSE");
 	}
 	
-	void buscarPaquete(){
-		int numero;
-		cout<< "--------------------------------"<<endl
-		<< "| Ingrese los siguientes datos |"<<endl
-		<< "--------------------------------"<<endl<<endl;
-		cout<<	"Ingrese el codigo de ratreo..:"<<endl;
-		cin>>numero;
-
-		if(numero == numero_rastreo){
-		
-		cout<<	"Numero de rastreo..............:"<<numero_rastreo <<endl;
-		cout<<	"Descripcion del paquete........:"<<descripcion_paquete <<endl;
-		cout<<	"Numero en libras...............:"<<peso_libras <<endl;
-		cout<<	"Codigo del cliente.............:"<<codigo_cliente <<endl;
-		
-	}else{
-			cout<<"El codigo que usted ingreso no coincide..."<<endl
-				<<"Intentelo de nuevo"<<endl<<endl;
-		}
-		system("pause>nul");
-		system("cls");
-	}
-
-	void listaPaquetePorCliente(){
-
-	}
-
-	void mensaje_salida(){
+		void mensaje_salida(){
 		cout<<"Gracias por usar nuestro servicio."	<<endl
-
 			<<"Que tenga un buen dia..."			<<endl<<endl
 			<<"Precione nuevamente ENTER para salir."<<endl;
 	}
 
 };
 
-
 int main(){
-	UnahExpress express;
-	int opcion;
 
-	enum Opciones {nuevo_cliente = 1, nuevo_paquete, entrega_paquete, buscar_paquete, lista_paquetes, salir,mensaje_salida};
-	do{
+		UnahExpress express;
+	
+	int opcion;
+	
+	enum Opciones {NUEVO_CLIENTE = 1, NUEVO_PAQUETE, ENTREGA_PAQUETE, BUSCAR_PAQUETE, LISTA_PAQUETES, SALIR, mensaje_salida};
+    do {
 	   system("CLS");
 	   system("color F2");
 	   cout<< " ------------------------------------ " <<endl
@@ -139,33 +246,41 @@ int main(){
 		   << " | 6.- Salir                        | " <<endl
 		   << " ------------------------------------ " <<endl
 		   << " Ingrese su opcion [1-6]: ";
-		cin>> opcion;
+        cin >> opcion;
 		cout<<endl;
-
-		switch(opcion){
-			case nuevo_cliente:
-				express.nuevoCliente();
-				break;
-			case nuevo_paquete:
-				express.nuevoPaquete();
-				break;
-			case entrega_paquete:
-				express.entregaPaquete();
-				break;
-			case buscar_paquete:
-				express.buscarPaquete();
-				break;
-			case lista_paquetes:
-				express.listaPaquetePorCliente();
-				break;
-			case salir:
-				express.mensaje_salida();
-				break;
-			
+        
+        if (opcion <=0 || opcion >=7) {
+        	cout <<endl <<"*** ERROR -- Opcion Seleccionada No Existe ***" << endl << endl;
+        	system ("PAUSE");
 		}
-	}while (opcion != salir);
-	return 0;
+		
+        switch (opcion) {
+        	
+            case NUEVO_CLIENTE:
+            	cin.ignore(100, '\n');
+				express.registrarCliente();
+                break;
+                
+            case NUEVO_PAQUETE:
+				express.registrarPaquete();
+                break;
+                
+			case ENTREGA_PAQUETE:
 
-
+                break;
+                
+			case BUSCAR_PAQUETE:
+				express.busquedanumeroRastreo();
+				break;
+                
+            case LISTA_PAQUETES:
+                break;
+                
+            case SALIR:
+                express.mensaje_salida();
+                break;
+        }
+    } while (opcion != SALIR);
+    return 0;
 }
 
